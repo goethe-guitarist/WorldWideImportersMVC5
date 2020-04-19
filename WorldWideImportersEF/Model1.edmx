@@ -1,0 +1,2833 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WideWorldImportersDWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="City Key" />
+          </Key>
+          <Property Name="City Key" Type="int" Nullable="false" />
+          <Property Name="WWI City ID" Type="int" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="State Province" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Continent" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Sales Territory" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Subregion" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Location" Type="geography" />
+          <Property Name="Latest Recorded Population" Type="bigint" Nullable="false" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer Key" />
+          </Key>
+          <Property Name="Customer Key" Type="int" Nullable="false" />
+          <Property Name="WWI Customer ID" Type="int" Nullable="false" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Bill To Customer" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Buying Group" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Primary Contact" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Postal Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Date">
+          <Key>
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Day Number" Type="int" Nullable="false" />
+          <Property Name="Day" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Month" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Short Month" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Calendar Month Number" Type="int" Nullable="false" />
+          <Property Name="Calendar Month Label" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Calendar Year" Type="int" Nullable="false" />
+          <Property Name="Calendar Year Label" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fiscal Month Number" Type="int" Nullable="false" />
+          <Property Name="Fiscal Month Label" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fiscal Year" Type="int" Nullable="false" />
+          <Property Name="Fiscal Year Label" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ISO Week Number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee Key" />
+          </Key>
+          <Property Name="Employee Key" Type="int" Nullable="false" />
+          <Property Name="WWI Employee ID" Type="int" Nullable="false" />
+          <Property Name="Employee" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Preferred Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Is Salesperson" Type="bit" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment Method">
+          <Key>
+            <PropertyRef Name="Payment Method Key" />
+          </Key>
+          <Property Name="Payment Method Key" Type="int" Nullable="false" />
+          <Property Name="WWI Payment Method ID" Type="int" Nullable="false" />
+          <Property Name="Payment Method" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stock Item">
+          <Key>
+            <PropertyRef Name="Stock Item Key" />
+          </Key>
+          <Property Name="Stock Item Key" Type="int" Nullable="false" />
+          <Property Name="WWI Stock Item ID" Type="int" Nullable="false" />
+          <Property Name="Stock Item" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Selling Package" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Buying Package" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Lead Time Days" Type="int" Nullable="false" />
+          <Property Name="Quantity Per Outer" Type="int" Nullable="false" />
+          <Property Name="Is Chiller Stock" Type="bit" Nullable="false" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tax Rate" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Unit Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Recommended Retail Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Typical Weight Per Unit" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Supplier Key" />
+          </Key>
+          <Property Name="Supplier Key" Type="int" Nullable="false" />
+          <Property Name="WWI Supplier ID" Type="int" Nullable="false" />
+          <Property Name="Supplier" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Primary Contact" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Supplier Reference" Type="nvarchar" MaxLength="20" />
+          <Property Name="Payment Days" Type="int" Nullable="false" />
+          <Property Name="Postal Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transaction Type">
+          <Key>
+            <PropertyRef Name="Transaction Type Key" />
+          </Key>
+          <Property Name="Transaction Type Key" Type="int" Nullable="false" />
+          <Property Name="WWI Transaction Type ID" Type="int" Nullable="false" />
+          <Property Name="Transaction Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movement">
+          <Key>
+            <PropertyRef Name="Movement Key" />
+            <PropertyRef Name="Date Key" />
+          </Key>
+          <Property Name="Movement Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date Key" Type="date" Nullable="false" />
+          <Property Name="Stock Item Key" Type="int" Nullable="false" />
+          <Property Name="Customer Key" Type="int" />
+          <Property Name="Supplier Key" Type="int" />
+          <Property Name="Transaction Type Key" Type="int" Nullable="false" />
+          <Property Name="WWI Stock Item Transaction ID" Type="int" Nullable="false" />
+          <Property Name="WWI Invoice ID" Type="int" />
+          <Property Name="WWI Purchase Order ID" Type="int" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Order Key" />
+            <PropertyRef Name="Order Date Key" />
+          </Key>
+          <Property Name="Order Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City Key" Type="int" Nullable="false" />
+          <Property Name="Customer Key" Type="int" Nullable="false" />
+          <Property Name="Stock Item Key" Type="int" Nullable="false" />
+          <Property Name="Order Date Key" Type="date" Nullable="false" />
+          <Property Name="Picked Date Key" Type="date" />
+          <Property Name="Salesperson Key" Type="int" Nullable="false" />
+          <Property Name="Picker Key" Type="int" />
+          <Property Name="WWI Order ID" Type="int" Nullable="false" />
+          <Property Name="WWI Backorder ID" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Package" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Unit Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Tax Rate" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Total Excluding Tax" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Tax Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total Including Tax" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="Purchase Key" />
+            <PropertyRef Name="Date Key" />
+          </Key>
+          <Property Name="Purchase Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date Key" Type="date" Nullable="false" />
+          <Property Name="Supplier Key" Type="int" Nullable="false" />
+          <Property Name="Stock Item Key" Type="int" Nullable="false" />
+          <Property Name="WWI Purchase Order ID" Type="int" />
+          <Property Name="Ordered Outers" Type="int" Nullable="false" />
+          <Property Name="Ordered Quantity" Type="int" Nullable="false" />
+          <Property Name="Received Outers" Type="int" Nullable="false" />
+          <Property Name="Package" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Is Order Finalized" Type="bit" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="Sale Key" />
+            <PropertyRef Name="Invoice Date Key" />
+          </Key>
+          <Property Name="Sale Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City Key" Type="int" Nullable="false" />
+          <Property Name="Customer Key" Type="int" Nullable="false" />
+          <Property Name="Bill To Customer Key" Type="int" Nullable="false" />
+          <Property Name="Stock Item Key" Type="int" Nullable="false" />
+          <Property Name="Invoice Date Key" Type="date" Nullable="false" />
+          <Property Name="Delivery Date Key" Type="date" />
+          <Property Name="Salesperson Key" Type="int" Nullable="false" />
+          <Property Name="WWI Invoice ID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Package" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Unit Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Tax Rate" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Total Excluding Tax" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Tax Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Profit" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total Including Tax" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total Dry Items" Type="int" Nullable="false" />
+          <Property Name="Total Chiller Items" Type="int" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stock Holding">
+          <Key>
+            <PropertyRef Name="Stock Holding Key" />
+          </Key>
+          <Property Name="Stock Holding Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Stock Item Key" Type="int" Nullable="false" />
+          <Property Name="Quantity On Hand" Type="int" Nullable="false" />
+          <Property Name="Bin Location" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Last Stocktake Quantity" Type="int" Nullable="false" />
+          <Property Name="Last Cost Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Reorder Level" Type="int" Nullable="false" />
+          <Property Name="Target Stock Level" Type="int" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Transaction Key" />
+            <PropertyRef Name="Date Key" />
+          </Key>
+          <Property Name="Transaction Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date Key" Type="date" Nullable="false" />
+          <Property Name="Customer Key" Type="int" />
+          <Property Name="Bill To Customer Key" Type="int" />
+          <Property Name="Supplier Key" Type="int" />
+          <Property Name="Transaction Type Key" Type="int" Nullable="false" />
+          <Property Name="Payment Method Key" Type="int" />
+          <Property Name="WWI Customer Transaction ID" Type="int" />
+          <Property Name="WWI Supplier Transaction ID" Type="int" />
+          <Property Name="WWI Invoice ID" Type="int" />
+          <Property Name="WWI Purchase Order ID" Type="int" />
+          <Property Name="Supplier Invoice Number" Type="nvarchar" MaxLength="20" />
+          <Property Name="Total Excluding Tax" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Tax Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total Including Tax" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Outstanding Balance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Is Finalized" Type="bit" Nullable="false" />
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City_Staging">
+          <Key>
+            <PropertyRef Name="City Staging Key" />
+          </Key>
+          <Property Name="City Staging Key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WWI City ID" Type="int" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="State Province" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Continent" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Sales Territory" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Subregion" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Location" Type="geography" />
+          <Property Name="Latest Recorded Population" Type="bigint" Nullable="false" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer_Staging">
+          <Key>
+            <PropertyRef Name="Customer Staging Key" />
+          </Key>
+          <Property Name="Customer Staging Key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WWI Customer ID" Type="int" Nullable="false" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Bill To Customer" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Buying Group" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Primary Contact" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Postal Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee_Staging">
+          <Key>
+            <PropertyRef Name="Employee Staging Key" />
+          </Key>
+          <Property Name="Employee Staging Key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WWI Employee ID" Type="int" Nullable="false" />
+          <Property Name="Employee" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Preferred Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Is Salesperson" Type="bit" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ETL Cutoff">
+          <Key>
+            <PropertyRef Name="Table Name" />
+          </Key>
+          <Property Name="Table Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Cutoff Time" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lineage">
+          <Key>
+            <PropertyRef Name="Lineage Key" />
+          </Key>
+          <Property Name="Lineage Key" Type="int" Nullable="false" />
+          <Property Name="Data Load Started" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Table Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Data Load Completed" Type="datetime2" Precision="7" />
+          <Property Name="Was Successful" Type="bit" Nullable="false" />
+          <Property Name="Source System Cutoff Time" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movement_Staging">
+          <Key>
+            <PropertyRef Name="Movement Staging Key" />
+          </Key>
+          <Property Name="Movement Staging Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date Key" Type="date" />
+          <Property Name="Stock Item Key" Type="int" />
+          <Property Name="Customer Key" Type="int" />
+          <Property Name="Supplier Key" Type="int" />
+          <Property Name="Transaction Type Key" Type="int" />
+          <Property Name="WWI Stock Item Transaction ID" Type="int" />
+          <Property Name="WWI Invoice ID" Type="int" />
+          <Property Name="WWI Purchase Order ID" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="WWI Stock Item ID" Type="int" />
+          <Property Name="WWI Customer ID" Type="int" />
+          <Property Name="WWI Supplier ID" Type="int" />
+          <Property Name="WWI Transaction Type ID" Type="int" />
+          <Property Name="Last Modifed When" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Order_Staging">
+          <Key>
+            <PropertyRef Name="Order Staging Key" />
+          </Key>
+          <Property Name="Order Staging Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City Key" Type="int" />
+          <Property Name="Customer Key" Type="int" />
+          <Property Name="Stock Item Key" Type="int" />
+          <Property Name="Order Date Key" Type="date" />
+          <Property Name="Picked Date Key" Type="date" />
+          <Property Name="Salesperson Key" Type="int" />
+          <Property Name="Picker Key" Type="int" />
+          <Property Name="WWI Order ID" Type="int" />
+          <Property Name="WWI Backorder ID" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Package" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Unit Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tax Rate" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Total Excluding Tax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tax Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Total Including Tax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Lineage Key" Type="int" />
+          <Property Name="WWI City ID" Type="int" />
+          <Property Name="WWI Customer ID" Type="int" />
+          <Property Name="WWI Stock Item ID" Type="int" />
+          <Property Name="WWI Salesperson ID" Type="int" />
+          <Property Name="WWI Picker ID" Type="int" />
+          <Property Name="Last Modified When" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="PaymentMethod_Staging">
+          <Key>
+            <PropertyRef Name="Payment Method Staging Key" />
+          </Key>
+          <Property Name="Payment Method Staging Key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WWI Payment Method ID" Type="int" Nullable="false" />
+          <Property Name="Payment Method" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purchase_Staging">
+          <Key>
+            <PropertyRef Name="Purchase Staging Key" />
+          </Key>
+          <Property Name="Purchase Staging Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date Key" Type="date" />
+          <Property Name="Supplier Key" Type="int" />
+          <Property Name="Stock Item Key" Type="int" />
+          <Property Name="WWI Purchase Order ID" Type="int" />
+          <Property Name="Ordered Outers" Type="int" />
+          <Property Name="Ordered Quantity" Type="int" />
+          <Property Name="Received Outers" Type="int" />
+          <Property Name="Package" Type="nvarchar" MaxLength="50" />
+          <Property Name="Is Order Finalized" Type="bit" />
+          <Property Name="WWI Supplier ID" Type="int" />
+          <Property Name="WWI Stock Item ID" Type="int" />
+          <Property Name="Last Modified When" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Sale_Staging">
+          <Key>
+            <PropertyRef Name="Sale Staging Key" />
+          </Key>
+          <Property Name="Sale Staging Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City Key" Type="int" />
+          <Property Name="Customer Key" Type="int" />
+          <Property Name="Bill To Customer Key" Type="int" />
+          <Property Name="Stock Item Key" Type="int" />
+          <Property Name="Invoice Date Key" Type="date" />
+          <Property Name="Delivery Date Key" Type="date" />
+          <Property Name="Salesperson Key" Type="int" />
+          <Property Name="WWI Invoice ID" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Package" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Unit Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tax Rate" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Total Excluding Tax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tax Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Profit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Total Including Tax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Total Dry Items" Type="int" />
+          <Property Name="Total Chiller Items" Type="int" />
+          <Property Name="WWI City ID" Type="int" />
+          <Property Name="WWI Customer ID" Type="int" />
+          <Property Name="WWI Bill To Customer ID" Type="int" />
+          <Property Name="WWI Stock Item ID" Type="int" />
+          <Property Name="WWI Salesperson ID" Type="int" />
+          <Property Name="Last Modified When" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="StockHolding_Staging">
+          <Key>
+            <PropertyRef Name="Stock Holding Staging Key" />
+          </Key>
+          <Property Name="Stock Holding Staging Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Stock Item Key" Type="int" />
+          <Property Name="Quantity On Hand" Type="int" />
+          <Property Name="Bin Location" Type="nvarchar" MaxLength="20" />
+          <Property Name="Last Stocktake Quantity" Type="int" />
+          <Property Name="Last Cost Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Reorder Level" Type="int" />
+          <Property Name="Target Stock Level" Type="int" />
+          <Property Name="WWI Stock Item ID" Type="int" />
+        </EntityType>
+        <EntityType Name="StockItem_Staging">
+          <Key>
+            <PropertyRef Name="Stock Item Staging Key" />
+          </Key>
+          <Property Name="Stock Item Staging Key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WWI Stock Item ID" Type="int" Nullable="false" />
+          <Property Name="Stock Item" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Selling Package" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Buying Package" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Lead Time Days" Type="int" Nullable="false" />
+          <Property Name="Quantity Per Outer" Type="int" Nullable="false" />
+          <Property Name="Is Chiller Stock" Type="bit" Nullable="false" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tax Rate" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Unit Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Recommended Retail Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Typical Weight Per Unit" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supplier_Staging">
+          <Key>
+            <PropertyRef Name="Supplier Staging Key" />
+          </Key>
+          <Property Name="Supplier Staging Key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WWI Supplier ID" Type="int" Nullable="false" />
+          <Property Name="Supplier" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Primary Contact" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Supplier Reference" Type="nvarchar" MaxLength="20" />
+          <Property Name="Payment Days" Type="int" Nullable="false" />
+          <Property Name="Postal Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transaction_Staging">
+          <Key>
+            <PropertyRef Name="Transaction Staging Key" />
+          </Key>
+          <Property Name="Transaction Staging Key" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date Key" Type="date" />
+          <Property Name="Customer Key" Type="int" />
+          <Property Name="Bill To Customer Key" Type="int" />
+          <Property Name="Supplier Key" Type="int" />
+          <Property Name="Transaction Type Key" Type="int" />
+          <Property Name="Payment Method Key" Type="int" />
+          <Property Name="WWI Customer Transaction ID" Type="int" />
+          <Property Name="WWI Supplier Transaction ID" Type="int" />
+          <Property Name="WWI Invoice ID" Type="int" />
+          <Property Name="WWI Purchase Order ID" Type="int" />
+          <Property Name="Supplier Invoice Number" Type="nvarchar" MaxLength="20" />
+          <Property Name="Total Excluding Tax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tax Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Total Including Tax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Outstanding Balance" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Is Finalized" Type="bit" />
+          <Property Name="WWI Customer ID" Type="int" />
+          <Property Name="WWI Bill To Customer ID" Type="int" />
+          <Property Name="WWI Supplier ID" Type="int" />
+          <Property Name="WWI Transaction Type ID" Type="int" />
+          <Property Name="WWI Payment Method ID" Type="int" />
+          <Property Name="Last Modified When" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="TransactionType_Staging">
+          <Key>
+            <PropertyRef Name="Transaction Type Staging Key" />
+          </Key>
+          <Property Name="Transaction Type Staging Key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WWI Transaction Type ID" Type="int" Nullable="false" />
+          <Property Name="Transaction Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Valid From" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Valid To" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Fact_Movement_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer Key" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Customer Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Movement_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Date Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Movement_Stock_Item_Key_Dimension_Stock Item">
+          <End Role="Stock Item" Type="Self.Stock Item" Multiplicity="1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock Item">
+              <PropertyRef Name="Stock Item Key" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Stock Item Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Movement_Supplier_Key_Dimension_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier Key" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Supplier Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Movement_Transaction_Type_Key_Dimension_Transaction Type">
+          <End Role="Transaction Type" Type="Self.Transaction Type" Multiplicity="1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction Type">
+              <PropertyRef Name="Transaction Type Key" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Transaction Type Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_City_Key_Dimension_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City Key" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="City Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer Key" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Customer Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Order_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Order Date Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Picked_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Picked Date Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Picker_Key_Dimension_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee Key" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Picker Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Salesperson_Key_Dimension_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee Key" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Salesperson Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Stock_Item_Key_Dimension_Stock Item">
+          <End Role="Stock Item" Type="Self.Stock Item" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock Item">
+              <PropertyRef Name="Stock Item Key" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Stock Item Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Purchase_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Date Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Purchase_Stock_Item_Key_Dimension_Stock Item">
+          <End Role="Stock Item" Type="Self.Stock Item" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock Item">
+              <PropertyRef Name="Stock Item Key" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Stock Item Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Purchase_Supplier_Key_Dimension_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier Key" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Supplier Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Bill_To_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer Key" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Bill To Customer Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_City_Key_Dimension_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City Key" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="City Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer Key" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Customer Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Delivery_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="0..1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Delivery Date Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Invoice_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Invoice Date Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Salesperson_Key_Dimension_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee Key" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Salesperson Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Stock_Item_Key_Dimension_Stock Item">
+          <End Role="Stock Item" Type="Self.Stock Item" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock Item">
+              <PropertyRef Name="Stock Item Key" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Stock Item Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Stock_Holding_Stock_Item_Key_Dimension_Stock Item">
+          <End Role="Stock Item" Type="Self.Stock Item" Multiplicity="1" />
+          <End Role="Stock Holding" Type="Self.Stock Holding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock Item">
+              <PropertyRef Name="Stock Item Key" />
+            </Principal>
+            <Dependent Role="Stock Holding">
+              <PropertyRef Name="Stock Item Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Bill_To_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer Key" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Bill To Customer Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer Key" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Customer Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Date Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Payment_Method_Key_Dimension_Payment Method">
+          <End Role="Payment Method" Type="Self.Payment Method" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment Method">
+              <PropertyRef Name="Payment Method Key" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Payment Method Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Supplier_Key_Dimension_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier Key" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Supplier Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Transaction_Type_Key_Dimension_Transaction Type">
+          <End Role="Transaction Type" Type="Self.Transaction Type" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction Type">
+              <PropertyRef Name="Transaction Type Key" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Transaction Type Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Configuration_ApplyPartitionedColumnstoreIndexing" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Application" />
+        <Function Name="Configuration_ApplyPolybase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Application" />
+        <Function Name="Configuration_ConfigureForEnterpriseEdition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Application" />
+        <Function Name="Configuration_EnableInMemory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Application" />
+        <Function Name="Configuration_PopulateLargeSaleTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Application">
+          <Parameter Name="EstimatedRowsFor2012" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="Configuration_ReseedETL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Application" />
+        <Function Name="GenerateDateDimensionColumns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration">
+          <Parameter Name="Date" Type="date" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Date" Type="date" />
+                <Property Name="Day Number" Type="int" />
+                <Property Name="Day" Type="nvarchar" MaxLength="10" />
+                <Property Name="Month" Type="nvarchar" MaxLength="10" />
+                <Property Name="Short Month" Type="nvarchar" MaxLength="3" />
+                <Property Name="Calendar Month Number" Type="int" />
+                <Property Name="Calendar Month Label" Type="nvarchar" MaxLength="10" />
+                <Property Name="Calendar Year" Type="int" />
+                <Property Name="Calendar Year Label" Type="nvarchar" MaxLength="10" />
+                <Property Name="Fiscal Month Number" Type="int" />
+                <Property Name="Fiscal Month Label" Type="nvarchar" MaxLength="20" />
+                <Property Name="Fiscal Year" Type="int" />
+                <Property Name="Fiscal Year Label" Type="nvarchar" MaxLength="10" />
+                <Property Name="ISO Week Number" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GetLastETLCutoffTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration">
+          <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetLineageKey" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration">
+          <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+          <Parameter Name="NewCutoffTime" Type="datetime2" Mode="In" />
+        </Function>
+        <Function Name="MigrateStagedCityData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedCustomerData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedEmployeeData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedMovementData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedOrderData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedPaymentMethodData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedPurchaseData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedSaleData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedStockHoldingData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedStockItemData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedSupplierData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedTransactionData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="MigrateStagedTransactionTypeData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration" />
+        <Function Name="PopulateDateDimensionForYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Integration">
+          <Parameter Name="YearNumber" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReseedAllSequences" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Sequences" />
+        <Function Name="ReseedSequenceBeyondTableValues" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Sequences">
+          <Parameter Name="SequenceName" Type="nvarchar" Mode="In" />
+          <Parameter Name="SchemaName" Type="nvarchar" Mode="In" />
+          <Parameter Name="TableName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ColumnName" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="WideWorldImportersDWModelStoreContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="Dimension" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="Dimension" store:Type="Tables" />
+          <EntitySet Name="Date" EntityType="Self.Date" Schema="Dimension" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="Dimension" store:Type="Tables" />
+          <EntitySet Name="Payment Method" EntityType="Self.Payment Method" Schema="Dimension" store:Type="Tables" />
+          <EntitySet Name="Stock Item" EntityType="Self.Stock Item" Schema="Dimension" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="Dimension" store:Type="Tables" />
+          <EntitySet Name="Transaction Type" EntityType="Self.Transaction Type" Schema="Dimension" store:Type="Tables" />
+          <EntitySet Name="Movement" EntityType="Self.Movement" Schema="Fact" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="Fact" store:Type="Tables" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="Fact" store:Type="Tables" />
+          <EntitySet Name="Sale" EntityType="Self.Sale" Schema="Fact" store:Type="Tables" />
+          <EntitySet Name="Stock Holding" EntityType="Self.Stock Holding" Schema="Fact" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="Fact" store:Type="Tables" />
+          <EntitySet Name="City_Staging" EntityType="Self.City_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="Customer_Staging" EntityType="Self.Customer_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="Employee_Staging" EntityType="Self.Employee_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="ETL Cutoff" EntityType="Self.ETL Cutoff" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="Lineage" EntityType="Self.Lineage" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="Movement_Staging" EntityType="Self.Movement_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="Order_Staging" EntityType="Self.Order_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="PaymentMethod_Staging" EntityType="Self.PaymentMethod_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="Purchase_Staging" EntityType="Self.Purchase_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="Sale_Staging" EntityType="Self.Sale_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="StockHolding_Staging" EntityType="Self.StockHolding_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="StockItem_Staging" EntityType="Self.StockItem_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="Supplier_Staging" EntityType="Self.Supplier_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="Transaction_Staging" EntityType="Self.Transaction_Staging" Schema="Integration" store:Type="Tables" />
+          <EntitySet Name="TransactionType_Staging" EntityType="Self.TransactionType_Staging" Schema="Integration" store:Type="Tables" />
+          <AssociationSet Name="FK_Fact_Movement_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Movement_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Movement_Date_Key_Dimension_Date" Association="Self.FK_Fact_Movement_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Date" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Movement_Stock_Item_Key_Dimension_Stock Item" Association="Self.FK_Fact_Movement_Stock_Item_Key_Dimension_Stock Item">
+            <End Role="Stock Item" EntitySet="Stock Item" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Movement_Supplier_Key_Dimension_Supplier" Association="Self.FK_Fact_Movement_Supplier_Key_Dimension_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Movement_Transaction_Type_Key_Dimension_Transaction Type" Association="Self.FK_Fact_Movement_Transaction_Type_Key_Dimension_Transaction Type">
+            <End Role="Transaction Type" EntitySet="Transaction Type" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_City_Key_Dimension_City" Association="Self.FK_Fact_Order_City_Key_Dimension_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Order_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Order_Date_Key_Dimension_Date" Association="Self.FK_Fact_Order_Order_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Date" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Picked_Date_Key_Dimension_Date" Association="Self.FK_Fact_Order_Picked_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Date" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Picker_Key_Dimension_Employee" Association="Self.FK_Fact_Order_Picker_Key_Dimension_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Salesperson_Key_Dimension_Employee" Association="Self.FK_Fact_Order_Salesperson_Key_Dimension_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Stock_Item_Key_Dimension_Stock Item" Association="Self.FK_Fact_Order_Stock_Item_Key_Dimension_Stock Item">
+            <End Role="Stock Item" EntitySet="Stock Item" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Purchase_Date_Key_Dimension_Date" Association="Self.FK_Fact_Purchase_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Date" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Purchase_Stock_Item_Key_Dimension_Stock Item" Association="Self.FK_Fact_Purchase_Stock_Item_Key_Dimension_Stock Item">
+            <End Role="Stock Item" EntitySet="Stock Item" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Purchase_Supplier_Key_Dimension_Supplier" Association="Self.FK_Fact_Purchase_Supplier_Key_Dimension_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Bill_To_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Sale_Bill_To_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_City_Key_Dimension_City" Association="Self.FK_Fact_Sale_City_Key_Dimension_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Sale_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Delivery_Date_Key_Dimension_Date" Association="Self.FK_Fact_Sale_Delivery_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Date" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Invoice_Date_Key_Dimension_Date" Association="Self.FK_Fact_Sale_Invoice_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Date" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Salesperson_Key_Dimension_Employee" Association="Self.FK_Fact_Sale_Salesperson_Key_Dimension_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Stock_Item_Key_Dimension_Stock Item" Association="Self.FK_Fact_Sale_Stock_Item_Key_Dimension_Stock Item">
+            <End Role="Stock Item" EntitySet="Stock Item" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Stock_Holding_Stock_Item_Key_Dimension_Stock Item" Association="Self.FK_Fact_Stock_Holding_Stock_Item_Key_Dimension_Stock Item">
+            <End Role="Stock Item" EntitySet="Stock Item" />
+            <End Role="Stock Holding" EntitySet="Stock Holding" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Bill_To_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Transaction_Bill_To_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Transaction_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Date_Key_Dimension_Date" Association="Self.FK_Fact_Transaction_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Date" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Payment_Method_Key_Dimension_Payment Method" Association="Self.FK_Fact_Transaction_Payment_Method_Key_Dimension_Payment Method">
+            <End Role="Payment Method" EntitySet="Payment Method" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Supplier_Key_Dimension_Supplier" Association="Self.FK_Fact_Transaction_Supplier_Key_Dimension_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Transaction_Type_Key_Dimension_Transaction Type" Association="Self.FK_Fact_Transaction_Transaction_Type_Key_Dimension_Transaction Type">
+            <End Role="Transaction Type" EntitySet="Transaction Type" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WideWorldImportersDWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="GenerateDateDimensionColumns_Result">
+          <Property Name="Date" Type="DateTime" />
+          <Property Name="Day_Number" Type="Int32" />
+          <Property Name="Day" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Short_Month" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Calendar_Month_Number" Type="Int32" />
+          <Property Name="Calendar_Month_Label" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Calendar_Year" Type="Int32" />
+          <Property Name="Calendar_Year_Label" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Fiscal_Month_Number" Type="Int32" />
+          <Property Name="Fiscal_Month_Label" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fiscal_Year" Type="Int32" />
+          <Property Name="Fiscal_Year_Label" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ISO_Week_Number" Type="Int32" />
+        </ComplexType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="City_Key" />
+          </Key>
+          <Property Name="City_Key" Type="Int32" Nullable="false" />
+          <Property Name="WWI_City_ID" Type="Int32" Nullable="false" />
+          <Property Name="City1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State_Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Continent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sales_Territory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Subregion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="Geography" />
+          <Property Name="Latest_Recorded_Population" Type="Int64" Nullable="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Fact_Order_City_Key_Dimension_City" FromRole="City" ToRole="Order" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK_Fact_Sale_City_Key_Dimension_City" FromRole="City" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer_Key" />
+          </Key>
+          <Property Name="Customer_Key" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Customer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Customer1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bill_To_Customer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Buying_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Primary_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Postal_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movements" Relationship="Self.FK_Fact_Movement_Customer_Key_Dimension_Customer" FromRole="Customer" ToRole="Movement" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Fact_Order_Customer_Key_Dimension_Customer" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK_Fact_Sale_Bill_To_Customer_Key_Dimension_Customer" FromRole="Customer" ToRole="Sale" />
+          <NavigationProperty Name="Sales1" Relationship="Self.FK_Fact_Sale_Customer_Key_Dimension_Customer" FromRole="Customer" ToRole="Sale" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Fact_Transaction_Bill_To_Customer_Key_Dimension_Customer" FromRole="Customer" ToRole="Transaction" />
+          <NavigationProperty Name="Transactions1" Relationship="Self.FK_Fact_Transaction_Customer_Key_Dimension_Customer" FromRole="Customer" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Date">
+          <Key>
+            <PropertyRef Name="Date1" />
+          </Key>
+          <Property Name="Date1" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Day_Number" Type="Int32" Nullable="false" />
+          <Property Name="Day" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Month" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Short_Month" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Calendar_Month_Number" Type="Int32" Nullable="false" />
+          <Property Name="Calendar_Month_Label" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Calendar_Year" Type="Int32" Nullable="false" />
+          <Property Name="Calendar_Year_Label" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fiscal_Month_Number" Type="Int32" Nullable="false" />
+          <Property Name="Fiscal_Month_Label" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fiscal_Year" Type="Int32" Nullable="false" />
+          <Property Name="Fiscal_Year_Label" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ISO_Week_Number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movements" Relationship="Self.FK_Fact_Movement_Date_Key_Dimension_Date" FromRole="Date" ToRole="Movement" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Fact_Order_Order_Date_Key_Dimension_Date" FromRole="Date" ToRole="Order" />
+          <NavigationProperty Name="Orders1" Relationship="Self.FK_Fact_Order_Picked_Date_Key_Dimension_Date" FromRole="Date" ToRole="Order" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK_Fact_Purchase_Date_Key_Dimension_Date" FromRole="Date" ToRole="Purchase" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK_Fact_Sale_Delivery_Date_Key_Dimension_Date" FromRole="Date" ToRole="Sale" />
+          <NavigationProperty Name="Sales1" Relationship="Self.FK_Fact_Sale_Invoice_Date_Key_Dimension_Date" FromRole="Date" ToRole="Sale" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Fact_Transaction_Date_Key_Dimension_Date" FromRole="Date" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_Key" />
+          </Key>
+          <Property Name="Employee_Key" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Employee_ID" Type="Int32" Nullable="false" />
+          <Property Name="Employee1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Preferred_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Is_Salesperson" Type="Boolean" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Fact_Order_Picker_Key_Dimension_Employee" FromRole="Employee" ToRole="Order" />
+          <NavigationProperty Name="Orders1" Relationship="Self.FK_Fact_Order_Salesperson_Key_Dimension_Employee" FromRole="Employee" ToRole="Order" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK_Fact_Sale_Salesperson_Key_Dimension_Employee" FromRole="Employee" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="Payment_Method">
+          <Key>
+            <PropertyRef Name="Payment_Method_Key" />
+          </Key>
+          <Property Name="Payment_Method_Key" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Payment_Method_ID" Type="Int32" Nullable="false" />
+          <Property Name="Payment_Method1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Fact_Transaction_Payment_Method_Key_Dimension_Payment_Method" FromRole="Payment_Method" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Stock_Item">
+          <Key>
+            <PropertyRef Name="Stock_Item_Key" />
+          </Key>
+          <Property Name="Stock_Item_Key" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Stock_Item_ID" Type="Int32" Nullable="false" />
+          <Property Name="Stock_Item1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Selling_Package" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Buying_Package" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lead_Time_Days" Type="Int32" Nullable="false" />
+          <Property Name="Quantity_Per_Outer" Type="Int32" Nullable="false" />
+          <Property Name="Is_Chiller_Stock" Type="Boolean" Nullable="false" />
+          <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tax_Rate" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Unit_Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Recommended_Retail_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Typical_Weight_Per_Unit" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movements" Relationship="Self.FK_Fact_Movement_Stock_Item_Key_Dimension_Stock_Item" FromRole="Stock_Item" ToRole="Movement" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Fact_Order_Stock_Item_Key_Dimension_Stock_Item" FromRole="Stock_Item" ToRole="Order" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK_Fact_Purchase_Stock_Item_Key_Dimension_Stock_Item" FromRole="Stock_Item" ToRole="Purchase" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK_Fact_Sale_Stock_Item_Key_Dimension_Stock_Item" FromRole="Stock_Item" ToRole="Sale" />
+          <NavigationProperty Name="Stock_Holding" Relationship="Self.FK_Fact_Stock_Holding_Stock_Item_Key_Dimension_Stock_Item" FromRole="Stock_Item" ToRole="Stock_Holding" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Supplier_Key" />
+          </Key>
+          <Property Name="Supplier_Key" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Supplier_ID" Type="Int32" Nullable="false" />
+          <Property Name="Supplier1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Primary_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Supplier_Reference" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Days" Type="Int32" Nullable="false" />
+          <Property Name="Postal_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movements" Relationship="Self.FK_Fact_Movement_Supplier_Key_Dimension_Supplier" FromRole="Supplier" ToRole="Movement" />
+          <NavigationProperty Name="Purchases" Relationship="Self.FK_Fact_Purchase_Supplier_Key_Dimension_Supplier" FromRole="Supplier" ToRole="Purchase" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Fact_Transaction_Supplier_Key_Dimension_Supplier" FromRole="Supplier" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Transaction_Type">
+          <Key>
+            <PropertyRef Name="Transaction_Type_Key" />
+          </Key>
+          <Property Name="Transaction_Type_Key" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Transaction_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Transaction_Type1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movements" Relationship="Self.FK_Fact_Movement_Transaction_Type_Key_Dimension_Transaction_Type" FromRole="Transaction_Type" ToRole="Movement" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Fact_Transaction_Transaction_Type_Key_Dimension_Transaction_Type" FromRole="Transaction_Type" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Movement">
+          <Key>
+            <PropertyRef Name="Movement_Key" />
+            <PropertyRef Name="Date_Key" />
+          </Key>
+          <Property Name="Movement_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Key" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Stock_Item_Key" Type="Int32" Nullable="false" />
+          <Property Name="Customer_Key" Type="Int32" />
+          <Property Name="Supplier_Key" Type="Int32" />
+          <Property Name="Transaction_Type_Key" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Stock_Item_Transaction_ID" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Invoice_ID" Type="Int32" />
+          <Property Name="WWI_Purchase_Order_ID" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Fact_Movement_Customer_Key_Dimension_Customer" FromRole="Movement" ToRole="Customer" />
+          <NavigationProperty Name="Date" Relationship="Self.FK_Fact_Movement_Date_Key_Dimension_Date" FromRole="Movement" ToRole="Date" />
+          <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Fact_Movement_Stock_Item_Key_Dimension_Stock_Item" FromRole="Movement" ToRole="Stock_Item" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Fact_Movement_Supplier_Key_Dimension_Supplier" FromRole="Movement" ToRole="Supplier" />
+          <NavigationProperty Name="Transaction_Type" Relationship="Self.FK_Fact_Movement_Transaction_Type_Key_Dimension_Transaction_Type" FromRole="Movement" ToRole="Transaction_Type" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Order_Key" />
+            <PropertyRef Name="Order_Date_Key" />
+          </Key>
+          <Property Name="Order_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City_Key" Type="Int32" Nullable="false" />
+          <Property Name="Customer_Key" Type="Int32" Nullable="false" />
+          <Property Name="Stock_Item_Key" Type="Int32" Nullable="false" />
+          <Property Name="Order_Date_Key" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Picked_Date_Key" Type="DateTime" Precision="0" />
+          <Property Name="Salesperson_Key" Type="Int32" Nullable="false" />
+          <Property Name="Picker_Key" Type="Int32" />
+          <Property Name="WWI_Order_ID" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Backorder_ID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Package" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Unit_Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Tax_Rate" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Total_Excluding_Tax" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Tax_Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total_Including_Tax" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Fact_Order_City_Key_Dimension_City" FromRole="Order" ToRole="City" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Fact_Order_Customer_Key_Dimension_Customer" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="Date" Relationship="Self.FK_Fact_Order_Order_Date_Key_Dimension_Date" FromRole="Order" ToRole="Date" />
+          <NavigationProperty Name="Date1" Relationship="Self.FK_Fact_Order_Picked_Date_Key_Dimension_Date" FromRole="Order" ToRole="Date" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Fact_Order_Picker_Key_Dimension_Employee" FromRole="Order" ToRole="Employee" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK_Fact_Order_Salesperson_Key_Dimension_Employee" FromRole="Order" ToRole="Employee" />
+          <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Fact_Order_Stock_Item_Key_Dimension_Stock_Item" FromRole="Order" ToRole="Stock_Item" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="Purchase_Key" />
+            <PropertyRef Name="Date_Key" />
+          </Key>
+          <Property Name="Purchase_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Key" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Supplier_Key" Type="Int32" Nullable="false" />
+          <Property Name="Stock_Item_Key" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Purchase_Order_ID" Type="Int32" />
+          <Property Name="Ordered_Outers" Type="Int32" Nullable="false" />
+          <Property Name="Ordered_Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Received_Outers" Type="Int32" Nullable="false" />
+          <Property Name="Package" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Is_Order_Finalized" Type="Boolean" Nullable="false" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Date" Relationship="Self.FK_Fact_Purchase_Date_Key_Dimension_Date" FromRole="Purchase" ToRole="Date" />
+          <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Fact_Purchase_Stock_Item_Key_Dimension_Stock_Item" FromRole="Purchase" ToRole="Stock_Item" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Fact_Purchase_Supplier_Key_Dimension_Supplier" FromRole="Purchase" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="Sale_Key" />
+            <PropertyRef Name="Invoice_Date_Key" />
+          </Key>
+          <Property Name="Sale_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City_Key" Type="Int32" Nullable="false" />
+          <Property Name="Customer_Key" Type="Int32" Nullable="false" />
+          <Property Name="Bill_To_Customer_Key" Type="Int32" Nullable="false" />
+          <Property Name="Stock_Item_Key" Type="Int32" Nullable="false" />
+          <Property Name="Invoice_Date_Key" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Delivery_Date_Key" Type="DateTime" Precision="0" />
+          <Property Name="Salesperson_Key" Type="Int32" Nullable="false" />
+          <Property Name="WWI_Invoice_ID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Package" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Unit_Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Tax_Rate" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Total_Excluding_Tax" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Tax_Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Profit" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total_Including_Tax" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total_Dry_Items" Type="Int32" Nullable="false" />
+          <Property Name="Total_Chiller_Items" Type="Int32" Nullable="false" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Fact_Sale_City_Key_Dimension_City" FromRole="Sale" ToRole="City" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Fact_Sale_Bill_To_Customer_Key_Dimension_Customer" FromRole="Sale" ToRole="Customer" />
+          <NavigationProperty Name="Customer1" Relationship="Self.FK_Fact_Sale_Customer_Key_Dimension_Customer" FromRole="Sale" ToRole="Customer" />
+          <NavigationProperty Name="Date" Relationship="Self.FK_Fact_Sale_Delivery_Date_Key_Dimension_Date" FromRole="Sale" ToRole="Date" />
+          <NavigationProperty Name="Date1" Relationship="Self.FK_Fact_Sale_Invoice_Date_Key_Dimension_Date" FromRole="Sale" ToRole="Date" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Fact_Sale_Salesperson_Key_Dimension_Employee" FromRole="Sale" ToRole="Employee" />
+          <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Fact_Sale_Stock_Item_Key_Dimension_Stock_Item" FromRole="Sale" ToRole="Stock_Item" />
+        </EntityType>
+        <EntityType Name="Stock_Holding">
+          <Key>
+            <PropertyRef Name="Stock_Holding_Key" />
+          </Key>
+          <Property Name="Stock_Holding_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Stock_Item_Key" Type="Int32" Nullable="false" />
+          <Property Name="Quantity_On_Hand" Type="Int32" Nullable="false" />
+          <Property Name="Bin_Location" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Last_Stocktake_Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Last_Cost_Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Reorder_Level" Type="Int32" Nullable="false" />
+          <Property Name="Target_Stock_Level" Type="Int32" Nullable="false" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Stock_Item" Relationship="Self.FK_Fact_Stock_Holding_Stock_Item_Key_Dimension_Stock_Item" FromRole="Stock_Holding" ToRole="Stock_Item" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Transaction_Key" />
+            <PropertyRef Name="Date_Key" />
+          </Key>
+          <Property Name="Transaction_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Key" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Customer_Key" Type="Int32" />
+          <Property Name="Bill_To_Customer_Key" Type="Int32" />
+          <Property Name="Supplier_Key" Type="Int32" />
+          <Property Name="Transaction_Type_Key" Type="Int32" Nullable="false" />
+          <Property Name="Payment_Method_Key" Type="Int32" />
+          <Property Name="WWI_Customer_Transaction_ID" Type="Int32" />
+          <Property Name="WWI_Supplier_Transaction_ID" Type="Int32" />
+          <Property Name="WWI_Invoice_ID" Type="Int32" />
+          <Property Name="WWI_Purchase_Order_ID" Type="Int32" />
+          <Property Name="Supplier_Invoice_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Total_Excluding_Tax" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Tax_Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total_Including_Tax" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Outstanding_Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Is_Finalized" Type="Boolean" Nullable="false" />
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Fact_Transaction_Bill_To_Customer_Key_Dimension_Customer" FromRole="Transaction" ToRole="Customer" />
+          <NavigationProperty Name="Customer1" Relationship="Self.FK_Fact_Transaction_Customer_Key_Dimension_Customer" FromRole="Transaction" ToRole="Customer" />
+          <NavigationProperty Name="Date" Relationship="Self.FK_Fact_Transaction_Date_Key_Dimension_Date" FromRole="Transaction" ToRole="Date" />
+          <NavigationProperty Name="Payment_Method" Relationship="Self.FK_Fact_Transaction_Payment_Method_Key_Dimension_Payment_Method" FromRole="Transaction" ToRole="Payment_Method" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Fact_Transaction_Supplier_Key_Dimension_Supplier" FromRole="Transaction" ToRole="Supplier" />
+          <NavigationProperty Name="Transaction_Type" Relationship="Self.FK_Fact_Transaction_Transaction_Type_Key_Dimension_Transaction_Type" FromRole="Transaction" ToRole="Transaction_Type" />
+        </EntityType>
+        <EntityType Name="City_Staging">
+          <Key>
+            <PropertyRef Name="City_Staging_Key" />
+          </Key>
+          <Property Name="City_Staging_Key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WWI_City_ID" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State_Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Continent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sales_Territory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Subregion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="Geography" />
+          <Property Name="Latest_Recorded_Population" Type="Int64" Nullable="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Customer_Staging">
+          <Key>
+            <PropertyRef Name="Customer_Staging_Key" />
+          </Key>
+          <Property Name="Customer_Staging_Key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WWI_Customer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Customer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bill_To_Customer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Buying_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Primary_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Postal_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Employee_Staging">
+          <Key>
+            <PropertyRef Name="Employee_Staging_Key" />
+          </Key>
+          <Property Name="Employee_Staging_Key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WWI_Employee_ID" Type="Int32" Nullable="false" />
+          <Property Name="Employee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Preferred_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Is_Salesperson" Type="Boolean" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="ETL_Cutoff">
+          <Key>
+            <PropertyRef Name="Table_Name" />
+          </Key>
+          <Property Name="Table_Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cutoff_Time" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Lineage">
+          <Key>
+            <PropertyRef Name="Lineage_Key" />
+          </Key>
+          <Property Name="Lineage_Key" Type="Int32" Nullable="false" />
+          <Property Name="Data_Load_Started" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Table_Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_Load_Completed" Type="DateTime" Precision="7" />
+          <Property Name="Was_Successful" Type="Boolean" Nullable="false" />
+          <Property Name="Source_System_Cutoff_Time" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Movement_Staging">
+          <Key>
+            <PropertyRef Name="Movement_Staging_Key" />
+          </Key>
+          <Property Name="Movement_Staging_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Key" Type="DateTime" Precision="0" />
+          <Property Name="Stock_Item_Key" Type="Int32" />
+          <Property Name="Customer_Key" Type="Int32" />
+          <Property Name="Supplier_Key" Type="Int32" />
+          <Property Name="Transaction_Type_Key" Type="Int32" />
+          <Property Name="WWI_Stock_Item_Transaction_ID" Type="Int32" />
+          <Property Name="WWI_Invoice_ID" Type="Int32" />
+          <Property Name="WWI_Purchase_Order_ID" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="WWI_Stock_Item_ID" Type="Int32" />
+          <Property Name="WWI_Customer_ID" Type="Int32" />
+          <Property Name="WWI_Supplier_ID" Type="Int32" />
+          <Property Name="WWI_Transaction_Type_ID" Type="Int32" />
+          <Property Name="Last_Modifed_When" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="Order_Staging">
+          <Key>
+            <PropertyRef Name="Order_Staging_Key" />
+          </Key>
+          <Property Name="Order_Staging_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City_Key" Type="Int32" />
+          <Property Name="Customer_Key" Type="Int32" />
+          <Property Name="Stock_Item_Key" Type="Int32" />
+          <Property Name="Order_Date_Key" Type="DateTime" Precision="0" />
+          <Property Name="Picked_Date_Key" Type="DateTime" Precision="0" />
+          <Property Name="Salesperson_Key" Type="Int32" />
+          <Property Name="Picker_Key" Type="Int32" />
+          <Property Name="WWI_Order_ID" Type="Int32" />
+          <Property Name="WWI_Backorder_ID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Package" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Unit_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tax_Rate" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Total_Excluding_Tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tax_Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Total_Including_Tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Lineage_Key" Type="Int32" />
+          <Property Name="WWI_City_ID" Type="Int32" />
+          <Property Name="WWI_Customer_ID" Type="Int32" />
+          <Property Name="WWI_Stock_Item_ID" Type="Int32" />
+          <Property Name="WWI_Salesperson_ID" Type="Int32" />
+          <Property Name="WWI_Picker_ID" Type="Int32" />
+          <Property Name="Last_Modified_When" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="PaymentMethod_Staging">
+          <Key>
+            <PropertyRef Name="Payment_Method_Staging_Key" />
+          </Key>
+          <Property Name="Payment_Method_Staging_Key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WWI_Payment_Method_ID" Type="Int32" Nullable="false" />
+          <Property Name="Payment_Method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Purchase_Staging">
+          <Key>
+            <PropertyRef Name="Purchase_Staging_Key" />
+          </Key>
+          <Property Name="Purchase_Staging_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Key" Type="DateTime" Precision="0" />
+          <Property Name="Supplier_Key" Type="Int32" />
+          <Property Name="Stock_Item_Key" Type="Int32" />
+          <Property Name="WWI_Purchase_Order_ID" Type="Int32" />
+          <Property Name="Ordered_Outers" Type="Int32" />
+          <Property Name="Ordered_Quantity" Type="Int32" />
+          <Property Name="Received_Outers" Type="Int32" />
+          <Property Name="Package" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Order_Finalized" Type="Boolean" />
+          <Property Name="WWI_Supplier_ID" Type="Int32" />
+          <Property Name="WWI_Stock_Item_ID" Type="Int32" />
+          <Property Name="Last_Modified_When" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="Sale_Staging">
+          <Key>
+            <PropertyRef Name="Sale_Staging_Key" />
+          </Key>
+          <Property Name="Sale_Staging_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City_Key" Type="Int32" />
+          <Property Name="Customer_Key" Type="Int32" />
+          <Property Name="Bill_To_Customer_Key" Type="Int32" />
+          <Property Name="Stock_Item_Key" Type="Int32" />
+          <Property Name="Invoice_Date_Key" Type="DateTime" Precision="0" />
+          <Property Name="Delivery_Date_Key" Type="DateTime" Precision="0" />
+          <Property Name="Salesperson_Key" Type="Int32" />
+          <Property Name="WWI_Invoice_ID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Package" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Unit_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tax_Rate" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Total_Excluding_Tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tax_Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Profit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Total_Including_Tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Total_Dry_Items" Type="Int32" />
+          <Property Name="Total_Chiller_Items" Type="Int32" />
+          <Property Name="WWI_City_ID" Type="Int32" />
+          <Property Name="WWI_Customer_ID" Type="Int32" />
+          <Property Name="WWI_Bill_To_Customer_ID" Type="Int32" />
+          <Property Name="WWI_Stock_Item_ID" Type="Int32" />
+          <Property Name="WWI_Salesperson_ID" Type="Int32" />
+          <Property Name="Last_Modified_When" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="StockHolding_Staging">
+          <Key>
+            <PropertyRef Name="Stock_Holding_Staging_Key" />
+          </Key>
+          <Property Name="Stock_Holding_Staging_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Stock_Item_Key" Type="Int32" />
+          <Property Name="Quantity_On_Hand" Type="Int32" />
+          <Property Name="Bin_Location" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Last_Stocktake_Quantity" Type="Int32" />
+          <Property Name="Last_Cost_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Reorder_Level" Type="Int32" />
+          <Property Name="Target_Stock_Level" Type="Int32" />
+          <Property Name="WWI_Stock_Item_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="StockItem_Staging">
+          <Key>
+            <PropertyRef Name="Stock_Item_Staging_Key" />
+          </Key>
+          <Property Name="Stock_Item_Staging_Key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WWI_Stock_Item_ID" Type="Int32" Nullable="false" />
+          <Property Name="Stock_Item" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Selling_Package" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Buying_Package" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lead_Time_Days" Type="Int32" Nullable="false" />
+          <Property Name="Quantity_Per_Outer" Type="Int32" Nullable="false" />
+          <Property Name="Is_Chiller_Stock" Type="Boolean" Nullable="false" />
+          <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tax_Rate" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Unit_Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Recommended_Retail_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Typical_Weight_Per_Unit" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Supplier_Staging">
+          <Key>
+            <PropertyRef Name="Supplier_Staging_Key" />
+          </Key>
+          <Property Name="Supplier_Staging_Key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WWI_Supplier_ID" Type="Int32" Nullable="false" />
+          <Property Name="Supplier" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Primary_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Supplier_Reference" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Days" Type="Int32" Nullable="false" />
+          <Property Name="Postal_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Transaction_Staging">
+          <Key>
+            <PropertyRef Name="Transaction_Staging_Key" />
+          </Key>
+          <Property Name="Transaction_Staging_Key" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Key" Type="DateTime" Precision="0" />
+          <Property Name="Customer_Key" Type="Int32" />
+          <Property Name="Bill_To_Customer_Key" Type="Int32" />
+          <Property Name="Supplier_Key" Type="Int32" />
+          <Property Name="Transaction_Type_Key" Type="Int32" />
+          <Property Name="Payment_Method_Key" Type="Int32" />
+          <Property Name="WWI_Customer_Transaction_ID" Type="Int32" />
+          <Property Name="WWI_Supplier_Transaction_ID" Type="Int32" />
+          <Property Name="WWI_Invoice_ID" Type="Int32" />
+          <Property Name="WWI_Purchase_Order_ID" Type="Int32" />
+          <Property Name="Supplier_Invoice_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Total_Excluding_Tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tax_Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Total_Including_Tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Outstanding_Balance" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Is_Finalized" Type="Boolean" />
+          <Property Name="WWI_Customer_ID" Type="Int32" />
+          <Property Name="WWI_Bill_To_Customer_ID" Type="Int32" />
+          <Property Name="WWI_Supplier_ID" Type="Int32" />
+          <Property Name="WWI_Transaction_Type_ID" Type="Int32" />
+          <Property Name="WWI_Payment_Method_ID" Type="Int32" />
+          <Property Name="Last_Modified_When" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="TransactionType_Staging">
+          <Key>
+            <PropertyRef Name="Transaction_Type_Staging_Key" />
+          </Key>
+          <Property Name="Transaction_Type_Staging_Key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WWI_Transaction_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Transaction_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valid_From" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Valid_To" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <Association Name="FK_Fact_Order_City_Key_Dimension_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City_Key" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="City_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_City_Key_Dimension_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City_Key" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="City_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Movement_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Key" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Customer_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Key" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Customer_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Bill_To_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Key" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Bill_To_Customer_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Key" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Customer_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Bill_To_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Key" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Bill_To_Customer_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Customer_Key_Dimension_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Key" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Customer_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Movement_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date1" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Date_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Order_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date1" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Order_Date_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Picked_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date1" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Picked_Date_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Purchase_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date1" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Date_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Delivery_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="0..1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date1" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Delivery_Date_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Invoice_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date1" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Invoice_Date_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Date_Key_Dimension_Date">
+          <End Role="Date" Type="Self.Date" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Date">
+              <PropertyRef Name="Date1" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Date_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Picker_Key_Dimension_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_Key" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Picker_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Salesperson_Key_Dimension_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_Key" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Salesperson_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Salesperson_Key_Dimension_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_Key" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Salesperson_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Payment_Method_Key_Dimension_Payment_Method">
+          <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Method">
+              <PropertyRef Name="Payment_Method_Key" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Payment_Method_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Movement_Stock_Item_Key_Dimension_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_Item_Key" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Stock_Item_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Order_Stock_Item_Key_Dimension_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_Item_Key" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Stock_Item_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Purchase_Stock_Item_Key_Dimension_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_Item_Key" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Stock_Item_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Sale_Stock_Item_Key_Dimension_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_Item_Key" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Stock_Item_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Stock_Holding_Stock_Item_Key_Dimension_Stock_Item">
+          <End Role="Stock_Item" Type="Self.Stock_Item" Multiplicity="1" />
+          <End Role="Stock_Holding" Type="Self.Stock_Holding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock_Item">
+              <PropertyRef Name="Stock_Item_Key" />
+            </Principal>
+            <Dependent Role="Stock_Holding">
+              <PropertyRef Name="Stock_Item_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Movement_Supplier_Key_Dimension_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier_Key" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Supplier_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Purchase_Supplier_Key_Dimension_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier_Key" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Supplier_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Supplier_Key_Dimension_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Supplier_Key" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Supplier_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Movement_Transaction_Type_Key_Dimension_Transaction_Type">
+          <End Role="Transaction_Type" Type="Self.Transaction_Type" Multiplicity="1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction_Type">
+              <PropertyRef Name="Transaction_Type_Key" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="Transaction_Type_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fact_Transaction_Transaction_Type_Key_Dimension_Transaction_Type">
+          <End Role="Transaction_Type" Type="Self.Transaction_Type" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction_Type">
+              <PropertyRef Name="Transaction_Type_Key" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Transaction_Type_Key" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WideWorldImportersDWEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Dates" EntityType="Self.Date" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Payment_Methods" EntityType="Self.Payment_Method" />
+          <EntitySet Name="Stock_Items" EntityType="Self.Stock_Item" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="Transaction_Types" EntityType="Self.Transaction_Type" />
+          <EntitySet Name="Movements" EntityType="Self.Movement" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchase" />
+          <EntitySet Name="Sales" EntityType="Self.Sale" />
+          <EntitySet Name="Stock_Holdings" EntityType="Self.Stock_Holding" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="City_Staging" EntityType="Self.City_Staging" />
+          <EntitySet Name="Customer_Staging" EntityType="Self.Customer_Staging" />
+          <EntitySet Name="Employee_Staging" EntityType="Self.Employee_Staging" />
+          <EntitySet Name="ETL_Cutoffs" EntityType="Self.ETL_Cutoff" />
+          <EntitySet Name="Lineages" EntityType="Self.Lineage" />
+          <EntitySet Name="Movement_Staging" EntityType="Self.Movement_Staging" />
+          <EntitySet Name="Order_Staging" EntityType="Self.Order_Staging" />
+          <EntitySet Name="PaymentMethod_Staging" EntityType="Self.PaymentMethod_Staging" />
+          <EntitySet Name="Purchase_Staging" EntityType="Self.Purchase_Staging" />
+          <EntitySet Name="Sale_Staging" EntityType="Self.Sale_Staging" />
+          <EntitySet Name="StockHolding_Staging" EntityType="Self.StockHolding_Staging" />
+          <EntitySet Name="StockItem_Staging" EntityType="Self.StockItem_Staging" />
+          <EntitySet Name="Supplier_Staging" EntityType="Self.Supplier_Staging" />
+          <EntitySet Name="Transaction_Staging" EntityType="Self.Transaction_Staging" />
+          <EntitySet Name="TransactionType_Staging" EntityType="Self.TransactionType_Staging" />
+          <AssociationSet Name="FK_Fact_Order_City_Key_Dimension_City" Association="Self.FK_Fact_Order_City_Key_Dimension_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_City_Key_Dimension_City" Association="Self.FK_Fact_Sale_City_Key_Dimension_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Movement_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Movement_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Order_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Bill_To_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Sale_Bill_To_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Sale_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Bill_To_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Transaction_Bill_To_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Customer_Key_Dimension_Customer" Association="Self.FK_Fact_Transaction_Customer_Key_Dimension_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Movement_Date_Key_Dimension_Date" Association="Self.FK_Fact_Movement_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Dates" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Order_Date_Key_Dimension_Date" Association="Self.FK_Fact_Order_Order_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Dates" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Picked_Date_Key_Dimension_Date" Association="Self.FK_Fact_Order_Picked_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Dates" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Purchase_Date_Key_Dimension_Date" Association="Self.FK_Fact_Purchase_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Dates" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Delivery_Date_Key_Dimension_Date" Association="Self.FK_Fact_Sale_Delivery_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Dates" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Invoice_Date_Key_Dimension_Date" Association="Self.FK_Fact_Sale_Invoice_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Dates" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Date_Key_Dimension_Date" Association="Self.FK_Fact_Transaction_Date_Key_Dimension_Date">
+            <End Role="Date" EntitySet="Dates" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Picker_Key_Dimension_Employee" Association="Self.FK_Fact_Order_Picker_Key_Dimension_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Salesperson_Key_Dimension_Employee" Association="Self.FK_Fact_Order_Salesperson_Key_Dimension_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Salesperson_Key_Dimension_Employee" Association="Self.FK_Fact_Sale_Salesperson_Key_Dimension_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Payment_Method_Key_Dimension_Payment_Method" Association="Self.FK_Fact_Transaction_Payment_Method_Key_Dimension_Payment_Method">
+            <End Role="Payment_Method" EntitySet="Payment_Methods" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Movement_Stock_Item_Key_Dimension_Stock_Item" Association="Self.FK_Fact_Movement_Stock_Item_Key_Dimension_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Items" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Order_Stock_Item_Key_Dimension_Stock_Item" Association="Self.FK_Fact_Order_Stock_Item_Key_Dimension_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Items" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Purchase_Stock_Item_Key_Dimension_Stock_Item" Association="Self.FK_Fact_Purchase_Stock_Item_Key_Dimension_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Items" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Sale_Stock_Item_Key_Dimension_Stock_Item" Association="Self.FK_Fact_Sale_Stock_Item_Key_Dimension_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Items" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Stock_Holding_Stock_Item_Key_Dimension_Stock_Item" Association="Self.FK_Fact_Stock_Holding_Stock_Item_Key_Dimension_Stock_Item">
+            <End Role="Stock_Item" EntitySet="Stock_Items" />
+            <End Role="Stock_Holding" EntitySet="Stock_Holdings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Movement_Supplier_Key_Dimension_Supplier" Association="Self.FK_Fact_Movement_Supplier_Key_Dimension_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Purchase_Supplier_Key_Dimension_Supplier" Association="Self.FK_Fact_Purchase_Supplier_Key_Dimension_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Supplier_Key_Dimension_Supplier" Association="Self.FK_Fact_Transaction_Supplier_Key_Dimension_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Movement_Transaction_Type_Key_Dimension_Transaction_Type" Association="Self.FK_Fact_Movement_Transaction_Type_Key_Dimension_Transaction_Type">
+            <End Role="Transaction_Type" EntitySet="Transaction_Types" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fact_Transaction_Transaction_Type_Key_Dimension_Transaction_Type" Association="Self.FK_Fact_Transaction_Transaction_Type_Key_Dimension_Transaction_Type">
+            <End Role="Transaction_Type" EntitySet="Transaction_Types" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <FunctionImport Name="GenerateDateDimensionColumns" IsComposable="true" ReturnType="Collection(WideWorldImportersDWModel.GenerateDateDimensionColumns_Result)">
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Configuration_ApplyPartitionedColumnstoreIndexing" />
+          <FunctionImport Name="Configuration_ApplyPolybase" />
+          <FunctionImport Name="Configuration_ConfigureForEnterpriseEdition" />
+          <FunctionImport Name="Configuration_EnableInMemory" />
+          <FunctionImport Name="Configuration_PopulateLargeSaleTable">
+            <Parameter Name="EstimatedRowsFor2012" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Configuration_ReseedETL" />
+          <FunctionImport Name="GetLastETLCutoffTime" ReturnType="Collection(DateTime)">
+            <Parameter Name="TableName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetLineageKey" ReturnType="Collection(Int32)">
+            <Parameter Name="TableName" Mode="In" Type="String" />
+            <Parameter Name="NewCutoffTime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="MigrateStagedCityData" />
+          <FunctionImport Name="MigrateStagedCustomerData" />
+          <FunctionImport Name="MigrateStagedEmployeeData" />
+          <FunctionImport Name="MigrateStagedMovementData" />
+          <FunctionImport Name="MigrateStagedOrderData" />
+          <FunctionImport Name="MigrateStagedPaymentMethodData" />
+          <FunctionImport Name="MigrateStagedPurchaseData" />
+          <FunctionImport Name="MigrateStagedSaleData" />
+          <FunctionImport Name="MigrateStagedStockHoldingData" />
+          <FunctionImport Name="MigrateStagedStockItemData" />
+          <FunctionImport Name="MigrateStagedSupplierData" />
+          <FunctionImport Name="MigrateStagedTransactionData" />
+          <FunctionImport Name="MigrateStagedTransactionTypeData" />
+          <FunctionImport Name="PopulateDateDimensionForYear">
+            <Parameter Name="YearNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReseedAllSequences" />
+          <FunctionImport Name="ReseedSequenceBeyondTableValues">
+            <Parameter Name="SequenceName" Mode="In" Type="String" />
+            <Parameter Name="SchemaName" Mode="In" Type="String" />
+            <Parameter Name="TableName" Mode="In" Type="String" />
+            <Parameter Name="ColumnName" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WideWorldImportersDWModelStoreContainer" CdmEntityContainer="WideWorldImportersDWEntities">
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="City_Key" ColumnName="City Key" />
+                <ScalarProperty Name="WWI_City_ID" ColumnName="WWI City ID" />
+                <ScalarProperty Name="City1" ColumnName="City" />
+                <ScalarProperty Name="State_Province" ColumnName="State Province" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Continent" ColumnName="Continent" />
+                <ScalarProperty Name="Sales_Territory" ColumnName="Sales Territory" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Subregion" ColumnName="Subregion" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Latest_Recorded_Population" ColumnName="Latest Recorded Population" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Customer_Key" ColumnName="Customer Key" />
+                <ScalarProperty Name="WWI_Customer_ID" ColumnName="WWI Customer ID" />
+                <ScalarProperty Name="Customer1" ColumnName="Customer" />
+                <ScalarProperty Name="Bill_To_Customer" ColumnName="Bill To Customer" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Buying_Group" ColumnName="Buying Group" />
+                <ScalarProperty Name="Primary_Contact" ColumnName="Primary Contact" />
+                <ScalarProperty Name="Postal_Code" ColumnName="Postal Code" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dates">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Date">
+              <MappingFragment StoreEntitySet="Date">
+                <ScalarProperty Name="Date1" ColumnName="Date" />
+                <ScalarProperty Name="Day_Number" ColumnName="Day Number" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Short_Month" ColumnName="Short Month" />
+                <ScalarProperty Name="Calendar_Month_Number" ColumnName="Calendar Month Number" />
+                <ScalarProperty Name="Calendar_Month_Label" ColumnName="Calendar Month Label" />
+                <ScalarProperty Name="Calendar_Year" ColumnName="Calendar Year" />
+                <ScalarProperty Name="Calendar_Year_Label" ColumnName="Calendar Year Label" />
+                <ScalarProperty Name="Fiscal_Month_Number" ColumnName="Fiscal Month Number" />
+                <ScalarProperty Name="Fiscal_Month_Label" ColumnName="Fiscal Month Label" />
+                <ScalarProperty Name="Fiscal_Year" ColumnName="Fiscal Year" />
+                <ScalarProperty Name="Fiscal_Year_Label" ColumnName="Fiscal Year Label" />
+                <ScalarProperty Name="ISO_Week_Number" ColumnName="ISO Week Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Employee_Key" ColumnName="Employee Key" />
+                <ScalarProperty Name="WWI_Employee_ID" ColumnName="WWI Employee ID" />
+                <ScalarProperty Name="Employee1" ColumnName="Employee" />
+                <ScalarProperty Name="Preferred_Name" ColumnName="Preferred Name" />
+                <ScalarProperty Name="Is_Salesperson" ColumnName="Is Salesperson" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment_Methods">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Payment_Method">
+              <MappingFragment StoreEntitySet="Payment Method">
+                <ScalarProperty Name="Payment_Method_Key" ColumnName="Payment Method Key" />
+                <ScalarProperty Name="WWI_Payment_Method_ID" ColumnName="WWI Payment Method ID" />
+                <ScalarProperty Name="Payment_Method1" ColumnName="Payment Method" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock_Items">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Stock_Item">
+              <MappingFragment StoreEntitySet="Stock Item">
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="WWI_Stock_Item_ID" ColumnName="WWI Stock Item ID" />
+                <ScalarProperty Name="Stock_Item1" ColumnName="Stock Item" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Selling_Package" ColumnName="Selling Package" />
+                <ScalarProperty Name="Buying_Package" ColumnName="Buying Package" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Lead_Time_Days" ColumnName="Lead Time Days" />
+                <ScalarProperty Name="Quantity_Per_Outer" ColumnName="Quantity Per Outer" />
+                <ScalarProperty Name="Is_Chiller_Stock" ColumnName="Is Chiller Stock" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Tax_Rate" ColumnName="Tax Rate" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit Price" />
+                <ScalarProperty Name="Recommended_Retail_Price" ColumnName="Recommended Retail Price" />
+                <ScalarProperty Name="Typical_Weight_Per_Unit" ColumnName="Typical Weight Per Unit" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Supplier_Key" ColumnName="Supplier Key" />
+                <ScalarProperty Name="WWI_Supplier_ID" ColumnName="WWI Supplier ID" />
+                <ScalarProperty Name="Supplier1" ColumnName="Supplier" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Primary_Contact" ColumnName="Primary Contact" />
+                <ScalarProperty Name="Supplier_Reference" ColumnName="Supplier Reference" />
+                <ScalarProperty Name="Payment_Days" ColumnName="Payment Days" />
+                <ScalarProperty Name="Postal_Code" ColumnName="Postal Code" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaction_Types">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Transaction_Type">
+              <MappingFragment StoreEntitySet="Transaction Type">
+                <ScalarProperty Name="Transaction_Type_Key" ColumnName="Transaction Type Key" />
+                <ScalarProperty Name="WWI_Transaction_Type_ID" ColumnName="WWI Transaction Type ID" />
+                <ScalarProperty Name="Transaction_Type1" ColumnName="Transaction Type" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movements">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Movement">
+              <MappingFragment StoreEntitySet="Movement">
+                <ScalarProperty Name="Movement_Key" ColumnName="Movement Key" />
+                <ScalarProperty Name="Date_Key" ColumnName="Date Key" />
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="Customer_Key" ColumnName="Customer Key" />
+                <ScalarProperty Name="Supplier_Key" ColumnName="Supplier Key" />
+                <ScalarProperty Name="Transaction_Type_Key" ColumnName="Transaction Type Key" />
+                <ScalarProperty Name="WWI_Stock_Item_Transaction_ID" ColumnName="WWI Stock Item Transaction ID" />
+                <ScalarProperty Name="WWI_Invoice_ID" ColumnName="WWI Invoice ID" />
+                <ScalarProperty Name="WWI_Purchase_Order_ID" ColumnName="WWI Purchase Order ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Order_Key" ColumnName="Order Key" />
+                <ScalarProperty Name="City_Key" ColumnName="City Key" />
+                <ScalarProperty Name="Customer_Key" ColumnName="Customer Key" />
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="Order_Date_Key" ColumnName="Order Date Key" />
+                <ScalarProperty Name="Picked_Date_Key" ColumnName="Picked Date Key" />
+                <ScalarProperty Name="Salesperson_Key" ColumnName="Salesperson Key" />
+                <ScalarProperty Name="Picker_Key" ColumnName="Picker Key" />
+                <ScalarProperty Name="WWI_Order_ID" ColumnName="WWI Order ID" />
+                <ScalarProperty Name="WWI_Backorder_ID" ColumnName="WWI Backorder ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit Price" />
+                <ScalarProperty Name="Tax_Rate" ColumnName="Tax Rate" />
+                <ScalarProperty Name="Total_Excluding_Tax" ColumnName="Total Excluding Tax" />
+                <ScalarProperty Name="Tax_Amount" ColumnName="Tax Amount" />
+                <ScalarProperty Name="Total_Including_Tax" ColumnName="Total Including Tax" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchase">
+                <ScalarProperty Name="Purchase_Key" ColumnName="Purchase Key" />
+                <ScalarProperty Name="Date_Key" ColumnName="Date Key" />
+                <ScalarProperty Name="Supplier_Key" ColumnName="Supplier Key" />
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="WWI_Purchase_Order_ID" ColumnName="WWI Purchase Order ID" />
+                <ScalarProperty Name="Ordered_Outers" ColumnName="Ordered Outers" />
+                <ScalarProperty Name="Ordered_Quantity" ColumnName="Ordered Quantity" />
+                <ScalarProperty Name="Received_Outers" ColumnName="Received Outers" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="Is_Order_Finalized" ColumnName="Is Order Finalized" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Sale">
+              <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="Sale_Key" ColumnName="Sale Key" />
+                <ScalarProperty Name="City_Key" ColumnName="City Key" />
+                <ScalarProperty Name="Customer_Key" ColumnName="Customer Key" />
+                <ScalarProperty Name="Bill_To_Customer_Key" ColumnName="Bill To Customer Key" />
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="Invoice_Date_Key" ColumnName="Invoice Date Key" />
+                <ScalarProperty Name="Delivery_Date_Key" ColumnName="Delivery Date Key" />
+                <ScalarProperty Name="Salesperson_Key" ColumnName="Salesperson Key" />
+                <ScalarProperty Name="WWI_Invoice_ID" ColumnName="WWI Invoice ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit Price" />
+                <ScalarProperty Name="Tax_Rate" ColumnName="Tax Rate" />
+                <ScalarProperty Name="Total_Excluding_Tax" ColumnName="Total Excluding Tax" />
+                <ScalarProperty Name="Tax_Amount" ColumnName="Tax Amount" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+                <ScalarProperty Name="Total_Including_Tax" ColumnName="Total Including Tax" />
+                <ScalarProperty Name="Total_Dry_Items" ColumnName="Total Dry Items" />
+                <ScalarProperty Name="Total_Chiller_Items" ColumnName="Total Chiller Items" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock_Holdings">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Stock_Holding">
+              <MappingFragment StoreEntitySet="Stock Holding">
+                <ScalarProperty Name="Stock_Holding_Key" ColumnName="Stock Holding Key" />
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="Quantity_On_Hand" ColumnName="Quantity On Hand" />
+                <ScalarProperty Name="Bin_Location" ColumnName="Bin Location" />
+                <ScalarProperty Name="Last_Stocktake_Quantity" ColumnName="Last Stocktake Quantity" />
+                <ScalarProperty Name="Last_Cost_Price" ColumnName="Last Cost Price" />
+                <ScalarProperty Name="Reorder_Level" ColumnName="Reorder Level" />
+                <ScalarProperty Name="Target_Stock_Level" ColumnName="Target Stock Level" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="Transaction_Key" ColumnName="Transaction Key" />
+                <ScalarProperty Name="Date_Key" ColumnName="Date Key" />
+                <ScalarProperty Name="Customer_Key" ColumnName="Customer Key" />
+                <ScalarProperty Name="Bill_To_Customer_Key" ColumnName="Bill To Customer Key" />
+                <ScalarProperty Name="Supplier_Key" ColumnName="Supplier Key" />
+                <ScalarProperty Name="Transaction_Type_Key" ColumnName="Transaction Type Key" />
+                <ScalarProperty Name="Payment_Method_Key" ColumnName="Payment Method Key" />
+                <ScalarProperty Name="WWI_Customer_Transaction_ID" ColumnName="WWI Customer Transaction ID" />
+                <ScalarProperty Name="WWI_Supplier_Transaction_ID" ColumnName="WWI Supplier Transaction ID" />
+                <ScalarProperty Name="WWI_Invoice_ID" ColumnName="WWI Invoice ID" />
+                <ScalarProperty Name="WWI_Purchase_Order_ID" ColumnName="WWI Purchase Order ID" />
+                <ScalarProperty Name="Supplier_Invoice_Number" ColumnName="Supplier Invoice Number" />
+                <ScalarProperty Name="Total_Excluding_Tax" ColumnName="Total Excluding Tax" />
+                <ScalarProperty Name="Tax_Amount" ColumnName="Tax Amount" />
+                <ScalarProperty Name="Total_Including_Tax" ColumnName="Total Including Tax" />
+                <ScalarProperty Name="Outstanding_Balance" ColumnName="Outstanding Balance" />
+                <ScalarProperty Name="Is_Finalized" ColumnName="Is Finalized" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.City_Staging">
+              <MappingFragment StoreEntitySet="City_Staging">
+                <ScalarProperty Name="City_Staging_Key" ColumnName="City Staging Key" />
+                <ScalarProperty Name="WWI_City_ID" ColumnName="WWI City ID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State_Province" ColumnName="State Province" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Continent" ColumnName="Continent" />
+                <ScalarProperty Name="Sales_Territory" ColumnName="Sales Territory" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Subregion" ColumnName="Subregion" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Latest_Recorded_Population" ColumnName="Latest Recorded Population" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Customer_Staging">
+              <MappingFragment StoreEntitySet="Customer_Staging">
+                <ScalarProperty Name="Customer_Staging_Key" ColumnName="Customer Staging Key" />
+                <ScalarProperty Name="WWI_Customer_ID" ColumnName="WWI Customer ID" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Bill_To_Customer" ColumnName="Bill To Customer" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Buying_Group" ColumnName="Buying Group" />
+                <ScalarProperty Name="Primary_Contact" ColumnName="Primary Contact" />
+                <ScalarProperty Name="Postal_Code" ColumnName="Postal Code" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Employee_Staging">
+              <MappingFragment StoreEntitySet="Employee_Staging">
+                <ScalarProperty Name="Employee_Staging_Key" ColumnName="Employee Staging Key" />
+                <ScalarProperty Name="WWI_Employee_ID" ColumnName="WWI Employee ID" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Preferred_Name" ColumnName="Preferred Name" />
+                <ScalarProperty Name="Is_Salesperson" ColumnName="Is Salesperson" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ETL_Cutoffs">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.ETL_Cutoff">
+              <MappingFragment StoreEntitySet="ETL Cutoff">
+                <ScalarProperty Name="Table_Name" ColumnName="Table Name" />
+                <ScalarProperty Name="Cutoff_Time" ColumnName="Cutoff Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lineages">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Lineage">
+              <MappingFragment StoreEntitySet="Lineage">
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+                <ScalarProperty Name="Data_Load_Started" ColumnName="Data Load Started" />
+                <ScalarProperty Name="Table_Name" ColumnName="Table Name" />
+                <ScalarProperty Name="Data_Load_Completed" ColumnName="Data Load Completed" />
+                <ScalarProperty Name="Was_Successful" ColumnName="Was Successful" />
+                <ScalarProperty Name="Source_System_Cutoff_Time" ColumnName="Source System Cutoff Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movement_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Movement_Staging">
+              <MappingFragment StoreEntitySet="Movement_Staging">
+                <ScalarProperty Name="Movement_Staging_Key" ColumnName="Movement Staging Key" />
+                <ScalarProperty Name="Date_Key" ColumnName="Date Key" />
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="Customer_Key" ColumnName="Customer Key" />
+                <ScalarProperty Name="Supplier_Key" ColumnName="Supplier Key" />
+                <ScalarProperty Name="Transaction_Type_Key" ColumnName="Transaction Type Key" />
+                <ScalarProperty Name="WWI_Stock_Item_Transaction_ID" ColumnName="WWI Stock Item Transaction ID" />
+                <ScalarProperty Name="WWI_Invoice_ID" ColumnName="WWI Invoice ID" />
+                <ScalarProperty Name="WWI_Purchase_Order_ID" ColumnName="WWI Purchase Order ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="WWI_Stock_Item_ID" ColumnName="WWI Stock Item ID" />
+                <ScalarProperty Name="WWI_Customer_ID" ColumnName="WWI Customer ID" />
+                <ScalarProperty Name="WWI_Supplier_ID" ColumnName="WWI Supplier ID" />
+                <ScalarProperty Name="WWI_Transaction_Type_ID" ColumnName="WWI Transaction Type ID" />
+                <ScalarProperty Name="Last_Modifed_When" ColumnName="Last Modifed When" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Order_Staging">
+              <MappingFragment StoreEntitySet="Order_Staging">
+                <ScalarProperty Name="Order_Staging_Key" ColumnName="Order Staging Key" />
+                <ScalarProperty Name="City_Key" ColumnName="City Key" />
+                <ScalarProperty Name="Customer_Key" ColumnName="Customer Key" />
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="Order_Date_Key" ColumnName="Order Date Key" />
+                <ScalarProperty Name="Picked_Date_Key" ColumnName="Picked Date Key" />
+                <ScalarProperty Name="Salesperson_Key" ColumnName="Salesperson Key" />
+                <ScalarProperty Name="Picker_Key" ColumnName="Picker Key" />
+                <ScalarProperty Name="WWI_Order_ID" ColumnName="WWI Order ID" />
+                <ScalarProperty Name="WWI_Backorder_ID" ColumnName="WWI Backorder ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit Price" />
+                <ScalarProperty Name="Tax_Rate" ColumnName="Tax Rate" />
+                <ScalarProperty Name="Total_Excluding_Tax" ColumnName="Total Excluding Tax" />
+                <ScalarProperty Name="Tax_Amount" ColumnName="Tax Amount" />
+                <ScalarProperty Name="Total_Including_Tax" ColumnName="Total Including Tax" />
+                <ScalarProperty Name="Lineage_Key" ColumnName="Lineage Key" />
+                <ScalarProperty Name="WWI_City_ID" ColumnName="WWI City ID" />
+                <ScalarProperty Name="WWI_Customer_ID" ColumnName="WWI Customer ID" />
+                <ScalarProperty Name="WWI_Stock_Item_ID" ColumnName="WWI Stock Item ID" />
+                <ScalarProperty Name="WWI_Salesperson_ID" ColumnName="WWI Salesperson ID" />
+                <ScalarProperty Name="WWI_Picker_ID" ColumnName="WWI Picker ID" />
+                <ScalarProperty Name="Last_Modified_When" ColumnName="Last Modified When" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMethod_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.PaymentMethod_Staging">
+              <MappingFragment StoreEntitySet="PaymentMethod_Staging">
+                <ScalarProperty Name="Payment_Method_Staging_Key" ColumnName="Payment Method Staging Key" />
+                <ScalarProperty Name="WWI_Payment_Method_ID" ColumnName="WWI Payment Method ID" />
+                <ScalarProperty Name="Payment_Method" ColumnName="Payment Method" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchase_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Purchase_Staging">
+              <MappingFragment StoreEntitySet="Purchase_Staging">
+                <ScalarProperty Name="Purchase_Staging_Key" ColumnName="Purchase Staging Key" />
+                <ScalarProperty Name="Date_Key" ColumnName="Date Key" />
+                <ScalarProperty Name="Supplier_Key" ColumnName="Supplier Key" />
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="WWI_Purchase_Order_ID" ColumnName="WWI Purchase Order ID" />
+                <ScalarProperty Name="Ordered_Outers" ColumnName="Ordered Outers" />
+                <ScalarProperty Name="Ordered_Quantity" ColumnName="Ordered Quantity" />
+                <ScalarProperty Name="Received_Outers" ColumnName="Received Outers" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="Is_Order_Finalized" ColumnName="Is Order Finalized" />
+                <ScalarProperty Name="WWI_Supplier_ID" ColumnName="WWI Supplier ID" />
+                <ScalarProperty Name="WWI_Stock_Item_ID" ColumnName="WWI Stock Item ID" />
+                <ScalarProperty Name="Last_Modified_When" ColumnName="Last Modified When" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Sale_Staging">
+              <MappingFragment StoreEntitySet="Sale_Staging">
+                <ScalarProperty Name="Sale_Staging_Key" ColumnName="Sale Staging Key" />
+                <ScalarProperty Name="City_Key" ColumnName="City Key" />
+                <ScalarProperty Name="Customer_Key" ColumnName="Customer Key" />
+                <ScalarProperty Name="Bill_To_Customer_Key" ColumnName="Bill To Customer Key" />
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="Invoice_Date_Key" ColumnName="Invoice Date Key" />
+                <ScalarProperty Name="Delivery_Date_Key" ColumnName="Delivery Date Key" />
+                <ScalarProperty Name="Salesperson_Key" ColumnName="Salesperson Key" />
+                <ScalarProperty Name="WWI_Invoice_ID" ColumnName="WWI Invoice ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit Price" />
+                <ScalarProperty Name="Tax_Rate" ColumnName="Tax Rate" />
+                <ScalarProperty Name="Total_Excluding_Tax" ColumnName="Total Excluding Tax" />
+                <ScalarProperty Name="Tax_Amount" ColumnName="Tax Amount" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+                <ScalarProperty Name="Total_Including_Tax" ColumnName="Total Including Tax" />
+                <ScalarProperty Name="Total_Dry_Items" ColumnName="Total Dry Items" />
+                <ScalarProperty Name="Total_Chiller_Items" ColumnName="Total Chiller Items" />
+                <ScalarProperty Name="WWI_City_ID" ColumnName="WWI City ID" />
+                <ScalarProperty Name="WWI_Customer_ID" ColumnName="WWI Customer ID" />
+                <ScalarProperty Name="WWI_Bill_To_Customer_ID" ColumnName="WWI Bill To Customer ID" />
+                <ScalarProperty Name="WWI_Stock_Item_ID" ColumnName="WWI Stock Item ID" />
+                <ScalarProperty Name="WWI_Salesperson_ID" ColumnName="WWI Salesperson ID" />
+                <ScalarProperty Name="Last_Modified_When" ColumnName="Last Modified When" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockHolding_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.StockHolding_Staging">
+              <MappingFragment StoreEntitySet="StockHolding_Staging">
+                <ScalarProperty Name="Stock_Holding_Staging_Key" ColumnName="Stock Holding Staging Key" />
+                <ScalarProperty Name="Stock_Item_Key" ColumnName="Stock Item Key" />
+                <ScalarProperty Name="Quantity_On_Hand" ColumnName="Quantity On Hand" />
+                <ScalarProperty Name="Bin_Location" ColumnName="Bin Location" />
+                <ScalarProperty Name="Last_Stocktake_Quantity" ColumnName="Last Stocktake Quantity" />
+                <ScalarProperty Name="Last_Cost_Price" ColumnName="Last Cost Price" />
+                <ScalarProperty Name="Reorder_Level" ColumnName="Reorder Level" />
+                <ScalarProperty Name="Target_Stock_Level" ColumnName="Target Stock Level" />
+                <ScalarProperty Name="WWI_Stock_Item_ID" ColumnName="WWI Stock Item ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockItem_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.StockItem_Staging">
+              <MappingFragment StoreEntitySet="StockItem_Staging">
+                <ScalarProperty Name="Stock_Item_Staging_Key" ColumnName="Stock Item Staging Key" />
+                <ScalarProperty Name="WWI_Stock_Item_ID" ColumnName="WWI Stock Item ID" />
+                <ScalarProperty Name="Stock_Item" ColumnName="Stock Item" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Selling_Package" ColumnName="Selling Package" />
+                <ScalarProperty Name="Buying_Package" ColumnName="Buying Package" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Lead_Time_Days" ColumnName="Lead Time Days" />
+                <ScalarProperty Name="Quantity_Per_Outer" ColumnName="Quantity Per Outer" />
+                <ScalarProperty Name="Is_Chiller_Stock" ColumnName="Is Chiller Stock" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Tax_Rate" ColumnName="Tax Rate" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit Price" />
+                <ScalarProperty Name="Recommended_Retail_Price" ColumnName="Recommended Retail Price" />
+                <ScalarProperty Name="Typical_Weight_Per_Unit" ColumnName="Typical Weight Per Unit" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supplier_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Supplier_Staging">
+              <MappingFragment StoreEntitySet="Supplier_Staging">
+                <ScalarProperty Name="Supplier_Staging_Key" ColumnName="Supplier Staging Key" />
+                <ScalarProperty Name="WWI_Supplier_ID" ColumnName="WWI Supplier ID" />
+                <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Primary_Contact" ColumnName="Primary Contact" />
+                <ScalarProperty Name="Supplier_Reference" ColumnName="Supplier Reference" />
+                <ScalarProperty Name="Payment_Days" ColumnName="Payment Days" />
+                <ScalarProperty Name="Postal_Code" ColumnName="Postal Code" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaction_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.Transaction_Staging">
+              <MappingFragment StoreEntitySet="Transaction_Staging">
+                <ScalarProperty Name="Transaction_Staging_Key" ColumnName="Transaction Staging Key" />
+                <ScalarProperty Name="Date_Key" ColumnName="Date Key" />
+                <ScalarProperty Name="Customer_Key" ColumnName="Customer Key" />
+                <ScalarProperty Name="Bill_To_Customer_Key" ColumnName="Bill To Customer Key" />
+                <ScalarProperty Name="Supplier_Key" ColumnName="Supplier Key" />
+                <ScalarProperty Name="Transaction_Type_Key" ColumnName="Transaction Type Key" />
+                <ScalarProperty Name="Payment_Method_Key" ColumnName="Payment Method Key" />
+                <ScalarProperty Name="WWI_Customer_Transaction_ID" ColumnName="WWI Customer Transaction ID" />
+                <ScalarProperty Name="WWI_Supplier_Transaction_ID" ColumnName="WWI Supplier Transaction ID" />
+                <ScalarProperty Name="WWI_Invoice_ID" ColumnName="WWI Invoice ID" />
+                <ScalarProperty Name="WWI_Purchase_Order_ID" ColumnName="WWI Purchase Order ID" />
+                <ScalarProperty Name="Supplier_Invoice_Number" ColumnName="Supplier Invoice Number" />
+                <ScalarProperty Name="Total_Excluding_Tax" ColumnName="Total Excluding Tax" />
+                <ScalarProperty Name="Tax_Amount" ColumnName="Tax Amount" />
+                <ScalarProperty Name="Total_Including_Tax" ColumnName="Total Including Tax" />
+                <ScalarProperty Name="Outstanding_Balance" ColumnName="Outstanding Balance" />
+                <ScalarProperty Name="Is_Finalized" ColumnName="Is Finalized" />
+                <ScalarProperty Name="WWI_Customer_ID" ColumnName="WWI Customer ID" />
+                <ScalarProperty Name="WWI_Bill_To_Customer_ID" ColumnName="WWI Bill To Customer ID" />
+                <ScalarProperty Name="WWI_Supplier_ID" ColumnName="WWI Supplier ID" />
+                <ScalarProperty Name="WWI_Transaction_Type_ID" ColumnName="WWI Transaction Type ID" />
+                <ScalarProperty Name="WWI_Payment_Method_ID" ColumnName="WWI Payment Method ID" />
+                <ScalarProperty Name="Last_Modified_When" ColumnName="Last Modified When" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionType_Staging">
+            <EntityTypeMapping TypeName="WideWorldImportersDWModel.TransactionType_Staging">
+              <MappingFragment StoreEntitySet="TransactionType_Staging">
+                <ScalarProperty Name="Transaction_Type_Staging_Key" ColumnName="Transaction Type Staging Key" />
+                <ScalarProperty Name="WWI_Transaction_Type_ID" ColumnName="WWI Transaction Type ID" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction Type" />
+                <ScalarProperty Name="Valid_From" ColumnName="Valid From" />
+                <ScalarProperty Name="Valid_To" ColumnName="Valid To" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="WideWorldImportersDWModel.Store.GenerateDateDimensionColumns" FunctionImportName="GenerateDateDimensionColumns">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WideWorldImportersDWModel.GenerateDateDimensionColumns_Result">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Day_Number" ColumnName="Day Number" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Short_Month" ColumnName="Short Month" />
+                <ScalarProperty Name="Calendar_Month_Number" ColumnName="Calendar Month Number" />
+                <ScalarProperty Name="Calendar_Month_Label" ColumnName="Calendar Month Label" />
+                <ScalarProperty Name="Calendar_Year" ColumnName="Calendar Year" />
+                <ScalarProperty Name="Calendar_Year_Label" ColumnName="Calendar Year Label" />
+                <ScalarProperty Name="Fiscal_Month_Number" ColumnName="Fiscal Month Number" />
+                <ScalarProperty Name="Fiscal_Month_Label" ColumnName="Fiscal Month Label" />
+                <ScalarProperty Name="Fiscal_Year" ColumnName="Fiscal Year" />
+                <ScalarProperty Name="Fiscal_Year_Label" ColumnName="Fiscal Year Label" />
+                <ScalarProperty Name="ISO_Week_Number" ColumnName="ISO Week Number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Configuration_ApplyPartitionedColumnstoreIndexing" FunctionName="WideWorldImportersDWModel.Store.Configuration_ApplyPartitionedColumnstoreIndexing" />
+          <FunctionImportMapping FunctionImportName="Configuration_ApplyPolybase" FunctionName="WideWorldImportersDWModel.Store.Configuration_ApplyPolybase" />
+          <FunctionImportMapping FunctionImportName="Configuration_ConfigureForEnterpriseEdition" FunctionName="WideWorldImportersDWModel.Store.Configuration_ConfigureForEnterpriseEdition" />
+          <FunctionImportMapping FunctionImportName="Configuration_EnableInMemory" FunctionName="WideWorldImportersDWModel.Store.Configuration_EnableInMemory" />
+          <FunctionImportMapping FunctionImportName="Configuration_PopulateLargeSaleTable" FunctionName="WideWorldImportersDWModel.Store.Configuration_PopulateLargeSaleTable" />
+          <FunctionImportMapping FunctionImportName="Configuration_ReseedETL" FunctionName="WideWorldImportersDWModel.Store.Configuration_ReseedETL" />
+          <FunctionImportMapping FunctionImportName="GetLastETLCutoffTime" FunctionName="WideWorldImportersDWModel.Store.GetLastETLCutoffTime" />
+          <FunctionImportMapping FunctionImportName="GetLineageKey" FunctionName="WideWorldImportersDWModel.Store.GetLineageKey" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedCityData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedCityData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedCustomerData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedCustomerData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedEmployeeData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedEmployeeData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedMovementData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedMovementData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedOrderData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedOrderData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedPaymentMethodData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedPaymentMethodData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedPurchaseData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedPurchaseData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedSaleData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedSaleData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedStockHoldingData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedStockHoldingData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedStockItemData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedStockItemData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedSupplierData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedSupplierData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedTransactionData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedTransactionData" />
+          <FunctionImportMapping FunctionImportName="MigrateStagedTransactionTypeData" FunctionName="WideWorldImportersDWModel.Store.MigrateStagedTransactionTypeData" />
+          <FunctionImportMapping FunctionImportName="PopulateDateDimensionForYear" FunctionName="WideWorldImportersDWModel.Store.PopulateDateDimensionForYear" />
+          <FunctionImportMapping FunctionImportName="ReseedAllSequences" FunctionName="WideWorldImportersDWModel.Store.ReseedAllSequences" />
+          <FunctionImportMapping FunctionImportName="ReseedSequenceBeyondTableValues" FunctionName="WideWorldImportersDWModel.Store.ReseedSequenceBeyondTableValues" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

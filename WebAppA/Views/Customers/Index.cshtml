@@ -1,0 +1,87 @@
+﻿@model IEnumerable<WorldWideImportersEF.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WWI_Customer_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bill_To_Customer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Buying_Group)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Primary_Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Postal_Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valid_From)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valid_To)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lineage_Key)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.WWI_Customer_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bill_To_Customer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Buying_Group)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Primary_Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Postal_Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valid_From)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valid_To)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lineage_Key)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Customer_Key }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Customer_Key }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Customer_Key })
+        </td>
+    </tr>
+}
+
+</table>

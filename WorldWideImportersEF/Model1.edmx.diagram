@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7135c17dabfc429db7b189bce0ee3826" Name="Diagram1">
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.City" Width="1.5" PointX="3.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Customer" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Date" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Employee" Width="1.5" PointX="3.75" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Payment_Method" Width="1.5" PointX="6.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Stock_Item" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Supplier" Width="1.5" PointX="0.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Transaction_Type" Width="1.5" PointX="0.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Movement" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Order" Width="1.5" PointX="6" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Purchase" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Sale" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Stock_Holding" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Transaction" Width="1.5" PointX="9" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.City_Staging" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Customer_Staging" Width="1.5" PointX="5.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Employee_Staging" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.ETL_Cutoff" Width="1.5" PointX="7.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Lineage" Width="1.5" PointX="8.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Movement_Staging" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Order_Staging" Width="1.5" PointX="10.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.PaymentMethod_Staging" Width="1.5" PointX="11.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Purchase_Staging" Width="1.5" PointX="12.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Sale_Staging" Width="1.5" PointX="12.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.StockHolding_Staging" Width="1.5" PointX="14.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.StockItem_Staging" Width="1.5" PointX="14.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Supplier_Staging" Width="1.5" PointX="14.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.Transaction_Staging" Width="1.5" PointX="14.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WideWorldImportersDWModel.TransactionType_Staging" Width="1.5" PointX="11.75" PointY="16.5" IsExpanded="true" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Order_City_Key_Dimension_City" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Sale_City_Key_Dimension_City" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Movement_Customer_Key_Dimension_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Order_Customer_Key_Dimension_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Sale_Bill_To_Customer_Key_Dimension_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Sale_Customer_Key_Dimension_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Transaction_Bill_To_Customer_Key_Dimension_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Transaction_Customer_Key_Dimension_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Movement_Date_Key_Dimension_Date" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Order_Order_Date_Key_Dimension_Date" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Order_Picked_Date_Key_Dimension_Date" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Purchase_Date_Key_Dimension_Date" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Sale_Delivery_Date_Key_Dimension_Date" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Sale_Invoice_Date_Key_Dimension_Date" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Transaction_Date_Key_Dimension_Date" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Order_Picker_Key_Dimension_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Order_Salesperson_Key_Dimension_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Sale_Salesperson_Key_Dimension_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Transaction_Payment_Method_Key_Dimension_Payment_Method" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Movement_Stock_Item_Key_Dimension_Stock_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Order_Stock_Item_Key_Dimension_Stock_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Purchase_Stock_Item_Key_Dimension_Stock_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Sale_Stock_Item_Key_Dimension_Stock_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Stock_Holding_Stock_Item_Key_Dimension_Stock_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Movement_Supplier_Key_Dimension_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Purchase_Supplier_Key_Dimension_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Transaction_Supplier_Key_Dimension_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Movement_Transaction_Type_Key_Dimension_Transaction_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="WideWorldImportersDWModel.FK_Fact_Transaction_Transaction_Type_Key_Dimension_Transaction_Type" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
